@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./css/bootstrap.min.css">
+</head>
+
+<body>
+  <main>
+    <section class="hero mt-5">
+      <div class="container">
+        <div class="hero__inner d-flex justify-content-between mb-5">
+        
+          <input class="form-control w-25" type="text" placeholder="search">
+
+          <div class="d-flex w-50 me-auto">
+            <select class="w-25 form-select">
+              <option selected>Categories</option>
+            </select>
+
+            <select class="w-25 extra-select form-select">
+              <option selected hidden class="" value="">Sorts</option>
+              <option value="default-option">Default</option>
+              <option value="a-z-option">A-Z</option>
+              <option value="z-a-option">Z-A</option>
+              <option value="option-0-10">0-10</option>
+              <option value="option-10-0">10-0</option>
+            </select>
+            
+          </div>
+        </div>
+
+        <div>
+          <ul class="list d-flex flex-wrap justify-content-around">
+
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <template id="template">
+    <li class="card my-2" style="width: 18rem;">
+      <img src="" class="card-img-top" alt="">
+      <div class="card-body">
+        <h5 class="card-title"></h5>
+        <p class="card-text"></p>
+        <p class="categories"></p>
+        <p class="card-rating"></p>
+      </div>
+    </li>
+  </template>
+
+  <script src="./js/movies.js"></script>
+  <script src="./js/script.js"></script>
+
+</body>
+
+</html>
