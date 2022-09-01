@@ -72,31 +72,44 @@ elInput.oninput = () => {
   renderFilm(filmName); 
 };
 
-let elSortSelect = document.querySelector(".extra-select");
-elSortSelect.addEventListener("change", function () {
-  if (this.value == "default-option") {
-    renderFilm(newArr);
-  } else if (this.value == "a-z-option") {
+let arrDefault = newArr.slice(0, 100); 
+
+let elMoviesSelectSort = document.querySelector(".movies__select-sort");
+
+elMoviesSelectSort.addEventListener("change", function () {
+
+  if (this.value == "choose-sort-default") {
+    renderMovies(arrDefault);
+  }
+
+  else if (this.value == "choose-sort-A-Z") {
     newArr = newArr.sort((a, b) => {
-      let movieName1 = a.title.toLowerCase();
-      let movieName2 = b.title.toLowerCase();
-      if (movieName1 < movieName2) return -1
+      let movName1 = a.title.toLowerCase();
+      let movName2 = b.title.toLowerCase();
+      if (movName1 < movName2) return -1
       return 1
     });
-    renderFilm(newArr);
-  } else if (this.value == "z-a-option") {
-    newArr = newArr.sort((a, b) => {
-      let movieName3 = a.title.toLowerCase();
-      let movieName4 = b.title.toLowerCase();
-      if (movieName3 < movieName4) return 1
-      return -1
-    });
-    renderFilm(newArr);
-  } else if (this.value == "option-0-10") {
-    newArr = newArr.sort((a, b) => a.newRaiting - b.newRaiting);
-    renderFilm(newArr);
-  } else if (this.value == "option-10-0") {
-    newArr = newArr.sort((a, b) => b.newRaiting - a.newRaiting);
-    renderFilm(newArr);
+    renderMovies(newArr);
   }
+
+  else if (this.value == "choose-sort-Z-A") {
+    newArr = newArr.sort((a, b) => {
+      let movName1 = a.title.toLowerCase();
+      let movName2 = b.title.toLowerCase();
+      if (movName1 > movName2) return -1
+      return 1
+    });
+    renderMovies(newArr);
+  }
+
+  else if (this.value == "choose-sort-0-10") {
+    newArr = newArr.sort((a, b) => a.retImdb - b.retImdb);
+    renderMovies(newArr);
+  }
+
+  else if (this.value == "choose-sort-10-0") {
+    newArr = newArr.sort((a, b) => b.retImdb - a.retImdb);
+    renderMovies(newArr);
+  }
+
 })
